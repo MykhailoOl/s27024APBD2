@@ -1,11 +1,13 @@
+using HWconsole.Exceptions;
+
 namespace HWconsole.Containers;
 
 internal class RefrigeratedContainer: Container
 {
-    public PossibleProducts ProductsType { get; }
+    public PossibleProducts ProductsType { get; set; }
     private double CurrentTemperature { get; set; }
 
-    public RefrigeratedContainer(PossibleProducts productsType, global::System.Double currentTemperature)
+    public RefrigeratedContainer(PossibleProducts productsType,double  cargoMass, global::System.Double currentTemperature): base(cargoMass)
     {
         this.ProductsType = productsType;
         if ((double)productsType > currentTemperature)
@@ -16,7 +18,7 @@ internal class RefrigeratedContainer: Container
             this.CurrentTemperature = currentTemperature;
         }
     }
-    public setProductsType (PossibleProducts e)
+    public void SetProductsType (PossibleProducts e)
     {
         if ((double)e > CurrentTemperature)
         {
@@ -34,6 +36,6 @@ internal class RefrigeratedContainer: Container
     }
     public new virtual void Unload()
     {
-        base.Load();
+        base.Unload();
     }
 }

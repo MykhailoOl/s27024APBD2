@@ -16,7 +16,7 @@ public class Container : IContainer
     public double MaximumPayload { get; set; }
     public double  CargoLoad { get; set; }
 
-    protected Container(double cargoMass)
+    public Container(double cargoMass)
     {
         CargoMass = cargoMass;
     }

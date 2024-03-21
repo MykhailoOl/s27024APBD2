@@ -8,8 +8,8 @@ class Ship
     public List<Container> List { get; set; }
     public int MaxSpeed { get; set; }
     public double MaxContainersWeight { get; set; } // in tons
-    public double CurrentLoad { get; set; }
-    public double CurrentContainerNumber { get; set; }
+    private double CurrentLoad { get; set; }
+    private double CurrentContainerNumber { get; set; }
 
     public void LoadContainer(Container c)
     {
@@ -25,7 +25,7 @@ class Ship
     {
         double sumWeight = 0;
         foreach (Container c in cs)
-            sumWeight+=c;
+            sumWeight+=c.CargoLoad;
         if (CurrentLoad + sumWeight * 0.001 > MaxContainersWeight)
             throw new OverloadException();
         if (CurrentContainerNumber+cs.Count > MaxContainerNumber)
