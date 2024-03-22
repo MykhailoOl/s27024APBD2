@@ -5,7 +5,8 @@ namespace HWconsole.Containers;
 internal class LiquidContainer : Container, IHazardNotifier
 {
     public bool HasHazardousCargo { get; set; }
-    protected LiquidContainer(double cargoMass) : base(cargoMass)
+
+    public LiquidContainer(double cargoMass) : base(cargoMass)
     {
     }
 
